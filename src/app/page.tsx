@@ -64,7 +64,7 @@ export default function HomePage() {
       <Head>
         <title>Jonathan Kang</title>
         <meta property="og:title" content="Jonathan Kang" key="title" />
-        <meta name="image" property="og:image" content="[/ogcopy.jpg]"/>
+        <meta name="image" property="og:image" content="[/images/og.jpg]"/>
       </Head>
       <section>
         <div className='App'>
