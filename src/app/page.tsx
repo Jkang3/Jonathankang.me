@@ -15,6 +15,9 @@ const Animator = dynamic(
   { ssr: false }
 );
 
+
+
+
 import {
   ScrollContainer,
   ScrollPage,
@@ -59,7 +62,8 @@ export default function HomePage() {
   return (
     <main>
       <Head>
-        <title>Hi</title>
+        <title>Jonathan Kang</title>
+        <meta property="og:title" content="Jonathan Kang" key="title" />
       </Head>
       <section>
         <div className='App'>
