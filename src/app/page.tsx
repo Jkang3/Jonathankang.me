@@ -1,7 +1,8 @@
 'use client';
 
 import 'animate.css';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect} from 'react';
+
 import {
   VerticalTimeline,
   VerticalTimelineElement, //@ts-ignore
@@ -17,41 +18,12 @@ const Animator = dynamic(
 
 
 
-
-import {
-  ScrollContainer,
-  ScrollPage,
-  batch,
-  Fade,
-  FadeIn,
-  FadeOut,
-  Move,
-  MoveIn,
-  MoveOut,
-  Sticky,
-  StickyIn,
-  StickyOut,
-  Zoom,
-  ZoomIn,
-  ZoomOut,
-} from 'react-scroll-motion';
-
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
 import Logo from '~/svg/Logo.svg';
 import Head from 'next/head';
 import { useWindowScroll } from '@uidotdev/usehooks';
 import { Scroll } from 'lucide-react';
 import Link from 'next/link';
 
-// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
-// Before you begin editing, follow all comments with `STARTERCONF`,
-// to customize the default configuration.
 
 export default function HomePage() {
   const viewRef = useRef<any>();
@@ -59,8 +31,24 @@ export default function HomePage() {
   const [{ x, y }, scrollTo] = useWindowScroll();
   const [val, setVal] = useState(false);
   console.log(y, viewRef.current?.offsetHeight);
+
+  useEffect(() => {
+    // Scrolls to the top of the page on component mount
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main>
+      <nav className="navbar animate__animated animate__fadeInDown animate__delay-2s h-20 fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full p-2 ">
+        {/* Logo on the left */}
+        <img src="mylogo.png" alt="Logo" className="h-24" onClick={() => window.location.reload()} />
+
+        {/* Right-aligned sections */}
+        <div className="flex">
+          <a className="text-white px-4 hover:text-gray-300" onClick={() => scrollTo({ left: 0, top: 870, behavior: "smooth" })}>About</a>
+          <a className="text-white px-4 hover:text-gray-300" onClick={() => scrollTo({ left: 0, top: 1660, behavior: "smooth" })}>Experiences</a>
+        </div>
+      </nav>
       <Head>
         <title>Jonathan Kang</title>
         <meta property="og:title" content="Jonathan Kang" key="title" />
@@ -77,8 +65,8 @@ export default function HomePage() {
                 </div>
               </div>
               <button
-                className='animate__animated animate__fadeInDown animate__delay-1s mt-4 h-10 w-24 rounded-xl border-white bg-white p-0 
-            text-lg text-blue-300'
+                className='resumebutton animate__animated animate__fadeInDown animate__delay-1s hover:opacity-50 mt-4 h-10 w-24 rounded-xl border-white bg-white p-0 
+            text-lg text-blue-300 '
                 onClick={() => window.open('/Resume.pdf')}
               >
                 Resume
@@ -137,13 +125,12 @@ export default function HomePage() {
                 viewRef.current?.offsetHeight,
             }}
           >
-            <a href='#About' className='arrow'>
+            <a className='arrow' onClick={() => scrollTo({ left: 0, top: 870, behavior: "smooth" })}>
               <img
                 src='arrow.png'
                 alt='Myself'
                 className={
-                  'animate__animated animate__fadeInDown animate__delay-2s ml-4 mt-5 h-8 w-8'
-                }
+                  'animate__animated animate__fadeInDown animate__delay-2s ml-4 mt-5 h-8 w-8'}
               />
             </a>
           </div>
@@ -152,7 +139,7 @@ export default function HomePage() {
             <div
               className={`animate__animated ${
                 y! > viewRef.current?.offsetHeight / 2
-                  ? `animate__fadeInDown`
+                  ? `animate__fadeIn`
                   : 'animate__fadeOut'
               }`}
             >
@@ -233,7 +220,7 @@ export default function HomePage() {
             <div
               className={`animate__animated ${
                 y! > (viewRef.current?.offsetHeight * 3) / 2
-                  ? `animate__fadeInDown`
+                  ? `animate__fadeIn`
                   : 'animate__fadeOut'
               }`}
             >

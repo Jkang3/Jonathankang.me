@@ -53,6 +53,10 @@
   background-color: #282c34;
 }
 
+.navbar{
+  background-color: #282c34;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -116,6 +120,8 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+
 
 body {
   background-color: #282c34;
