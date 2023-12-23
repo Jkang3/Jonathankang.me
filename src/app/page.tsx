@@ -45,8 +45,10 @@ export default function HomePage() {
 
         {/* Right-aligned sections */}
         <div className="flex">
-          <a className="text-white px-4 hover:text-gray-300" onClick={() => scrollTo({ left: 0, top: 870, behavior: "smooth" })}>About</a>
-          <a className="text-white px-4 hover:text-gray-300" onClick={() => scrollTo({ left: 0, top: 1660, behavior: "smooth" })}>Experiences</a>
+          <a className="text-white px-4 hover:text-gray-300" onClick={() => {const ratio = 1.1; // Desired ratio
+    const targetY = ratio * (viewRef.current?.offsetHeight || 0);scrollTo({ left: 0, top: targetY, behavior: "smooth" })}}>About</a>
+          <a className="text-white px-4 hover:text-gray-300" onClick={() => {const ratio = 1.05; // Desired ratio
+    const targetY = ratio * ((viewRef.current?.offsetHeight*2) || 0); scrollTo({ left: 0, top: targetY, behavior: "smooth" })}}>Experiences</a>
         </div>
       </nav>
       <Head>
@@ -125,7 +127,8 @@ export default function HomePage() {
                 viewRef.current?.offsetHeight,
             }}
           >
-            <a className='arrow' onClick={() => scrollTo({ left: 0, top: 870, behavior: "smooth" })}>
+            <a className='arrow' onClick={() => {const ratio = 1.1; // Desired ratio
+    const targetY = ratio * (viewRef.current?.offsetHeight || 0); scrollTo({ left: 0, top: targetY, behavior: "smooth" })}}>
               <img
                 src='arrow.png'
                 alt='Myself'
