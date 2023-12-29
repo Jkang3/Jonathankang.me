@@ -79,7 +79,7 @@ export default function HomePage() {
                 <img
                   src='me.png'
                   alt='Myself'
-                  className=' animate__animated animate__fadeInDown animate__delay-1s mb-3 ml-5 h-52 w-52'
+                  className=' animate__animated animate__fadeInDown animate__delay-1s mb-3 ml-5 h-52 w-52 img-responsive'
                 />
               </div>
               <div className='socials justify-center filter'>

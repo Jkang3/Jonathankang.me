@@ -121,7 +121,18 @@
   cursor: pointer;
 }
 
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
 
+/* Media query for mobile screens */
+@media (max-width: 600px) {
+  .img-responsive {
+    width: 100%;
+    height: auto;
+  }
+}
 
 body {
   background-color: #282c34;
