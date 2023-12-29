@@ -39,7 +39,9 @@ export default function HomePage() {
 
   return (
     <main>
-      <nav className="navbar animate__animated animate__fadeInDown animate__delay-2s h-20 fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full p-2 ">
+      <nav className="navbar animate__animated animate__fadeInDown animate__delay-2s 
+      h-20 fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full p-2
+      drop-shadow ">
         {/* Logo on the left */}
         <img src="mylogo.png" alt="Logo" className="h-24" onClick={() => window.location.reload()} />
 
